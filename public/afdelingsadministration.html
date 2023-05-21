@@ -63,33 +63,20 @@
 
                 <form id="assign-form">
                   <div class="form-group">
-                    <label for="customer-dropdown">Vælg kunde:</label>
-                    <select id="customer-dropdown" name="customer-dropdown" class="form-control">
-                      <!-- Kunder fetches fra databasen -->
+                    <label for="department-dropdown">Vælg afdeling:</label>
+                    <select id="department-dropdown" name="department-dropdown" class="form-control">
+                      <option value="security-consulting">Security Consulting</option>
+                      <option value="grc">GRC</option>
+                      <option value="finance-welfare">Finance & Welfare</option>
+                      <option value="health-infrastructure">Health & Infrastructure</option>
+                      <option value="education">Education</option>
                     </select>
                   </div>
                   <br>
                   <div class="form-group">
-                    <label>Tildel afdelinger:</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="department" id="security-consulting" value="Security Consulting">
-                      <label class="form-check-label" for="security-consulting">Security Consulting</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="department" id="grc" value="GRC">
-                      <label class="form-check-label" for="grc">GRC</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="department" id="finance-welfare" value="Finance & Welfare">
-                      <label class="form-check-label" for="finance-welfare">Finance & Welfare</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="department" id="health-infrastructure" value="Health & Infrastructure">
-                      <label class="form-check-label" for="health-infrastructure">Health & Infrastructure</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="department" id="education" value="Education">
-                      <label class="form-check-label" for="education">Education</label>
+                    <label>Tildel kunder:</label>
+                    <div id="customer-checkboxes">
+                      <!-- Kunder fetches fra databasen -->
                     </div>
                   </div>
                   <br>
