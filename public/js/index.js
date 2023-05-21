@@ -244,8 +244,22 @@ function showGeneratedTicket() {
     let environment = questions[3].choices.find(environment => environment.id == data.environment).name;
     let dataCategory = questions[4].choices.find(dataCategory => dataCategory.id == data.dataCategory).name;
 
-    document.getElementById("ticketDescription").value = `Ticket type: ${data.ticketType} \nDato: ${data.date} \nKunde: ${customer} \nMiljø: ${environment} \nDatakategori: ${dataCategory}`;
-    document.getElementById("shortDescription").value = `${data.ticketType} ${dataCategory} for ${customer}`;
+    const ticketDescriptionElement = document.getElementById("ticketDescription");
+    const shortDescriptionElement = document.getElementById("shortDescription");
+    const lowercaseDataCategory = dataCategory.toLowerCase();
+    const lowercaseEnvironment = environment.toLowerCase();
+
+    if (data.ticketType === "Ny data") {
+    ticketDescriptionElement.value = `Jeg ønsker at forespørge data for ${lowercaseDataCategory} for kunden ${customer} for ${environment}-miljøet.`;
+    shortDescriptionElement.value = `Ny ${dataCategory}-data for ${customer} (${lowercaseEnvironment}-miljøet)`;
+    } else if (data.ticketType === "Mangelfuld data") {
+    ticketDescriptionElement.value = `D. ${data.date} modtog jeg mangelfulde data vedrørende ${lowercaseDataCategory} for kunden ${customer} for ${lowercaseEnvironment}-miljøet.`;
+    shortDescriptionElement.value = `Mangelfulde ${lowercaseDataCategory}-data modtaget d. ${data.date} for ${customer} (${lowercaseEnvironment}-miljøet)`;
+    } else {
+    ticketDescriptionElement.value = `Ticket type: ${data.ticketType} \nDato: ${data.date} \nKunde: ${customer} \nMiljø: ${environment} \nDatakategori: ${dataCategory}`;
+    shortDescriptionElement.value = `${data.ticketType} ${dataCategory} for ${customer}`;
+    }
+
 }
 
 function generateUrl() {
